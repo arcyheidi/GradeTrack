@@ -1,0 +1,45 @@
+appId: com.gctu.gradetrack
+productName: GCTU GradeTrack Desktop
+copyright: Copyright © 2025 Ghana Communication Technology University
+
+directories:
+  output: release
+  buildResources: build
+
+files:
+  - dist/**/*
+  - electron/**/*
+  - node_modules/**/*
+  - "!**/*.ts"
+  - "!src"
+  - "!public"
+
+extraResources:
+  - from: public
+    to: public
+    filter:
+      - "**/*"
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: public/lovable-uploads/c1fd9bd0-22ed-4e5c-8561-a9c13e3462fe.png
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: GCTU GradeTrack
+  installerIcon: public/lovable-uploads/c1fd9bd0-22ed-4e5c-8561-a9c13e3462fe.png
+  uninstallerIcon: public/lovable-uploads/c1fd9bd0-22ed-4e5c-8561-a9c13e3462fe.png
+
+mac:
+  target: dmg
+  icon: public/lovable-uploads/c1fd9bd0-22ed-4e5c-8561-a9c13e3462fe.png
+
+linux:
+  target: AppImage
+  icon: public/lovable-uploads/c1fd9bd0-22ed-4e5c-8561-a9c13e3462fe.png

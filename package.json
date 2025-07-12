@@ -79,6 +79,53 @@
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0"
+  }
+  "main": "electron/main.js",
+  "homepage": "./",
+  "build": {
+    "appId": "com.gctu.gradetrack",
+    "productName": "GCTU GradeTrack Desktop",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "public",
+        "to": "public",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "public/lovable-uploads/c1fd9bd0-22ed-4e5c-8561-a9c13e3462fe.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "GCTU GradeTrack"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "public/lovable-uploads/c1fd9bd0-22ed-4e5c-8561-a9c13e3462fe.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "public/lovable-uploads/c1fd9bd0-22ed-4e5c-8561-a9c13e3462fe.png"
+    }
   }
 }
